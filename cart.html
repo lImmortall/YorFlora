@@ -1,1 +1,26 @@
-<!DOCTYPE html><html><head><title>Cart</title></head><body><h1>Your Cart</h1></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Cart – YORFLORA</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>YORFLORA</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Shop</a>
+      <a href="cart.html">Cart</a>
+    </nav>
+  </header>
+  <main>
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <p><strong>Total:</strong> ₹<span id="total">0</span></p>
+    <button onclick="location.href='checkout.html'">Checkout Now</button>
+  </main>
+</body>
+</html>

@@ -1,1 +1,49 @@
-<!DOCTYPE html><html><head><title>Products</title></head><body><h1>Our Products</h1></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop – YORFLORA</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>YORFLORA</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Shop</a>
+      <a href="cart.html">Cart</a>
+    </nav>
+  </header>
+  <main class="products-preview">
+    <h2>Shop Our Bouquets</h2>
+    <div class="product-card">
+      <img src="https://via.placeholder.com/300x300?text=Velvet+Roses" alt="Velvet Roses" />
+      <h3>Velvet Roses</h3>
+      <p>₹299 – 4 deep red roses wrapped in black paper with glitter</p>
+      <label><input type="checkbox" class="custom-option" value="Greeting Card" /> Add Greeting Card</label><br/>
+      <label><input type="checkbox" class="custom-option" value="Vase" /> Add Vase</label><br/>
+      <button onclick="addToCart('Velvet Roses', 299)">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img src="https://via.placeholder.com/300x300?text=Sunset+Bliss" alt="Sunset Bliss" />
+      <h3>Sunset Bliss</h3>
+      <p>₹399 – 6 orange-pink blooms in warm-toned wrap</p>
+      <label><input type="checkbox" class="custom-option" value="Greeting Card" /> Add Greeting Card</label><br/>
+      <label><input type="checkbox" class="custom-option" value="Vase" /> Add Vase</label><br/>
+      <button onclick="addToCart('Sunset Bliss', 399)">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img src="https://via.placeholder.com/300x300?text=Snow+Elegance" alt="Snow Elegance" />
+      <h3>Snow Elegance</h3>
+      <p>₹349 – 5 white lilies in silk finish paper</p>
+      <label><input type="checkbox" class="custom-option" value="Greeting Card" /> Add Greeting Card</label><br/>
+      <label><input type="checkbox" class="custom-option" value="Vase" /> Add Vase</label><br/>
+      <button onclick="addToCart('Snow Elegance', 349)">Add to Cart</button>
+    </div>
+  </main>
+</body>
+</html>
