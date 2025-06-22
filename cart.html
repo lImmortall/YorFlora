@@ -3,24 +3,65 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Your Cart – YORFLORA</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="script.js" defer></script>
+  <title>Cart - YORFLORA</title>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
   <header>
-    <h1>YORFLORA</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="products.html">Shop</a>
-      <a href="cart.html">Cart</a>
-    </nav>
+    <div class="container">
+      <div class="logo">YORFLORA</div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="cart.html">Cart</a>
+      </nav>
+    </div>
   </header>
-  <main>
-    <h2>Your Cart</h2>
-    <div id="cart-items"></div>
-    <p><strong>Total:</strong> ₹<span id="total">0</span></p>
-    <button onclick="location.href='checkout.html'">Checkout Now</button>
-  </main>
+
+  <section class="cart-section">
+    <div class="container">
+      <h2>Your Cart</h2>
+      <div id="cart-items"></div>
+      <div id="cart-total"></div>
+      <a href="checkout.html" class="btn">Proceed to Checkout</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 YORFLORA. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+    const cartContainer = document.getElementById("cart-items");
+    const cartTotal = document.getElementById("cart-total");
+
+    function renderCart() {
+      cartContainer.innerHTML = "";
+      let total = 0;
+      if (cartItems.length === 0) {
+        cartContainer.innerHTML = "<p>Your cart is empty.</p>";
+        cartTotal.innerHTML = "";
+        return;
+      }
+      cartItems.forEach((item, index) => {
+        total += item.price;
+        cartContainer.innerHTML += `
+          <div class="cart-item">
+            <p><strong>${item.name}</strong> - ₹${item.price}</p>
+            <button onclick="removeItem(${index})">Remove</button>
+          </div>`;
+      });
+      cartTotal.innerHTML = `<h3>Total: ₹${total}</h3>`;
+    }
+
+    function removeItem(index) {
+      cartItems.splice(index, 1);
+      localStorage.setItem("cart", JSON.stringify(cartItems));
+      renderCart();
+    }
+
+    renderCart();
+  </script>
 </body>
 </html>

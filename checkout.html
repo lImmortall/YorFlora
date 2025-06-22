@@ -3,29 +3,54 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Checkout – YORFLORA</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="script.js" defer></script>
+  <title>Checkout - YORFLORA</title>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
   <header>
-    <h1>YORFLORA</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="products.html">Shop</a>
-      <a href="cart.html">Cart</a>
-    </nav>
+    <div class="container">
+      <div class="logo">YORFLORA</div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="cart.html">Cart</a>
+      </nav>
+    </div>
   </header>
-  <main>
-    <h2>Checkout</h2>
-    <form onsubmit="submitOrder(event)">
-      <label>Name: <input type="text" required /></label><br/>
-      <label>Phone: <input type="tel" required /></label><br/>
-      <label>Address: <textarea required></textarea></label><br/>
-      <label>Delivery Date: <input type="date" required /></label><br/>
-      <label>Delivery Time: <input type="time" required /></label><br/>
-      <button type="submit">Proceed to Pay (Razorpay)</button>
-    </form>
-  </main>
+
+  <section class="checkout-section">
+    <div class="container">
+      <h2>Checkout</h2>
+      <form id="checkout-form">
+        <label>Full Name</label>
+        <input type="text" name="name" required>
+
+        <label>Phone Number</label>
+        <input type="tel" name="phone" required>
+
+        <label>Delivery Address</label>
+        <textarea name="address" required></textarea>
+
+        <label>Delivery Date & Time</label>
+        <input type="datetime-local" name="datetime" required>
+
+        <button type="submit" class="btn">Place Order (Razorpay coming)</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 YORFLORA. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById("checkout-form");
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      alert("Thank you! Your order is being processed.");
+      localStorage.removeItem("cart");
+      window.location.href = "index.html";
+    });
+  </script>
 </body>
 </html>
