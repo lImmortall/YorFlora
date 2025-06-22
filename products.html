@@ -14,7 +14,7 @@
       <nav>
         <a href="index.html">Home</a>
         <a href="products.html">Products</a>
-        <a href="#">Cart</a>
+        <a href="cart.html">Cart</a>
       </nav>
     </div>
   </header>
@@ -27,19 +27,19 @@
           <img src="https://images.unsplash.com/photo-1611078489935-dfe7c1b4bd1e?auto=format&fit=crop&w=600&q=80" alt="Velvet Roses">
           <h3>Velvet Roses</h3>
           <p>₹699</p>
-          <a href="#" class="btn">Customize + Add to Cart</a>
+          <button class="btn" onclick="addToCart('Velvet Roses', 699)">Add to Cart</button>
         </div>
         <div class="product-card">
           <img src="https://images.unsplash.com/photo-1526045612212-70caf35c14df?auto=format&fit=crop&w=600&q=80" alt="Snow Elegance">
           <h3>Snow Elegance</h3>
           <p>₹749</p>
-          <a href="#" class="btn">Customize + Add to Cart</a>
+          <button class="btn" onclick="addToCart('Snow Elegance', 749)">Add to Cart</button>
         </div>
         <div class="product-card">
           <img src="https://images.unsplash.com/photo-1591645555093-34ef11d9d273?auto=format&fit=crop&w=600&q=80" alt="Sunset Bliss">
           <h3>Sunset Bliss</h3>
           <p>₹799</p>
-          <a href="#" class="btn">Customize + Add to Cart</a>
+          <button class="btn" onclick="addToCart('Sunset Bliss', 799)">Add to Cart</button>
         </div>
       </div>
     </div>
@@ -48,5 +48,14 @@
   <footer>
     <p>© 2025 YORFLORA. All rights reserved.</p>
   </footer>
+
+  <script>
+    function addToCart(name, price) {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push({ name, price });
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert(name + " added to cart!");
+    }
+  </script>
 </body>
 </html>
